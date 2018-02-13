@@ -9,11 +9,14 @@ class App extends Component {
     firebase.initializeApp(config);
   }
   componentWillMount() {
+    this.setState({
+      loading : true
+    });
     let postsRef = firebase.database().ref('posts');
 
     let _this = this;
 
-    postsRef.on("value", function(snapshot) {
+    postsRef.on('value', function(snapshot) {
       console.log(snapshot.val());
 
       _this.setState({
@@ -26,7 +29,7 @@ class App extends Component {
     return (
       <div className="App">
       {this.props.children && React.cloneElement(this.props.children, {
-        firebaseRef : firebase.database.ref("posts"),
+        firebaseRef : firebase.database().ref("posts"),
         posts : this.state.posts,
         loading : this.state.loading
       })}

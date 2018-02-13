@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 
 class Posts extends Component {
     render() {
+        let posts = this.props.posts;
         if (this.props.loading) {
             return (
                 <div>..loading..</div>
@@ -9,9 +10,11 @@ class Posts extends Component {
         }
         return (
             <div className="Posts">
-                {this.props.posts.map((post, index) => {
+                {Object.keys(posts).map((key) => {
                     return(
-                        <div key={index}>{post.title}</div>
+                        <div key={key}>
+                            {posts[key].title}
+                        </div>
                     );
                 })}
             </div>

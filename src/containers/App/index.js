@@ -29,7 +29,7 @@ class App extends Component {
     return (
       <div className="App">
       {this.props.children && React.cloneElement(this.props.children, {
-        firebaseRef : firebase.database().ref("posts"),
+        firebaseRef : firebase.database(),
         posts : this.state.posts,
         loading : this.state.loading
       })}

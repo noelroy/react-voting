@@ -1,4 +1,7 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router';
+
+import './style.css';
 
 class Posts extends Component {
 
@@ -22,36 +25,37 @@ class Posts extends Component {
         let _this = this;
         let posts = this.props.posts;
 
-        if(!posts) return false;
-
         if (this.props.loading) {
             return (
                 <div>..loading..</div>
             );
         }
         return (
-            <div className="Posts">
-                {Object.keys(posts).map((key) => {
-                    return(
-                        <div key={key}>
-                            <label>Title</label><div>{posts[key].title}</div>
-                            <label>Upvote</label><div>{posts[key].upvote}</div>
-                            <label>Downvote</label><div>{posts[key].downvote}</div>
-                            <button
-                                onClick={_this.handleUpvote.bind(this, posts[key], key)}
-                                type="button"
-                            >
-                                Upvote
-                            </button>
-                            <button
-                                onClick={_this.handleDownvote.bind(this, posts[key], key)}
-                                type="button"
-                            >
-                                Downvote
-                            </button>
-                        </div>
-                    );
-                })}
+            <div className="ListPosts">
+                <Link className="Button" to="/add">Add Post</Link><br />>
+                <div className="Posts">
+                    {Object.keys(posts).map((key) => {
+                        return(
+                            <div className="Post" key={key}>
+                                <h2>{posts[key].title}</h2>
+                                <div><label>Upvotes:  </label><span>{posts[key].upvote}</span></div>
+                                <div><label>Downvotes:  </label><span>{posts[key].downvote}</span></div>
+                                <button
+                                    onClick={_this.handleUpvote.bind(this, posts[key], key)}
+                                    type="button"
+                                >
+                                    Upvote
+                                </button>
+                                <button
+                                    onClick={_this.handleDownvote.bind(this, posts[key], key)}
+                                    type="button"
+                                >
+                                    Downvote
+                                </button>
+                            </div>
+                        );
+                    })}
+                </div>
             </div>
         );
     }

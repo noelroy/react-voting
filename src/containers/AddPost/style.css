@@ -1,0 +1,11 @@
+.AddPage {
+    margin: 20px;
+}
+
+.Button {
+    color: white;
+    border-radius: 4px;
+    padding: 10px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    background: purple;
+}

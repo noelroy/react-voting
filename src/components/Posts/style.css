@@ -1,0 +1,22 @@
+.ListPosts {
+    margin: 20px;
+}
+
+.Post {
+    margin-bottom: 20px;
+    border: 5px solid purple;
+    padding: 10px;
+  }
+
+.Button {
+    color: white;
+    border-radius: 4px;
+    padding: 0.6em;
+    margin-bottom: 40px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    background: purple;
+}
+
+h2 {
+    margin-top: 10px;
+}

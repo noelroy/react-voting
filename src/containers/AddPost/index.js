@@ -1,4 +1,7 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router';
+
+import './style.css';
 
 class AddPost extends Component {
     constructor() {
@@ -33,18 +36,21 @@ class AddPost extends Component {
 
     render() {
         return(
-            <div className="AddPost">
-                <input
-                    type="text"
-                    onChange={this.handleChange}
-                    value={this.state.title}
-                />
-                <button
-                    type="submit"
-                    onClick={this.handleSubmit}
-                >
-                    Submit
-                </button>
+            <div className="AddPage">
+                <div className="AddPost">
+                    <input
+                        type="text"
+                        onChange={this.handleChange}
+                        value={this.state.title}
+                    />
+                    <button
+                        type="submit"
+                        onClick={this.handleSubmit}
+                    >
+                        Submit
+                    </button>
+                </div><br/>
+                <Link className="Button" to="/">Go back to Posts</Link>
             </div>
         );
     }
